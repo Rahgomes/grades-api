@@ -7,7 +7,7 @@ import { db } from './models/index.js';
 
 (async () => {
   try {
-    await db.mongoose.connect("mongodb+srv://zirah352:Euro2016@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority", {
+    await db.mongoose.connect(`mongodb+srv://zirah352:Euro2016@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'https://api-grades-estudantes.herokuapp.com',
+    origin: 'https://api-grades-estudantes.herokuapp.com'
     // origin: 'http://localhost:3000',
     // origin: 'http://localhost:8080',
   })
@@ -36,6 +36,6 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-app.listen(8081, () => {
+app.listen(8080, () => {
   console.log("API iniciada!");
 });
