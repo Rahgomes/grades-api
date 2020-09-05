@@ -36,6 +36,8 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-app.listen(8080, () => {
+const PORT = process.env.PORTLOCAL || 8081;
+
+app.listen(PORT, () => {
   console.log("API iniciada!");
 });
