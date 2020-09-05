@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-const PORT = process.env.PORT_LOCAL || process.env.PORT_EXTERNAL;
+const PORT = process.env.PORT || process.env.PORT_LOCAL || process.env.PORT_EXTERNAL;
 
 app.listen(PORT, () => {
   console.log("API iniciada!");
