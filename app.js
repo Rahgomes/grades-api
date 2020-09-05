@@ -5,9 +5,12 @@ import express from 'express';
 import { gradeRouter } from './routes/gradeRouter.js';
 import { db } from './models/index.js';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 (async () => {
   try {
-    await db.mongoose.connect(`mongodb+srv://zirah352:Euro2016@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority`, {
+    await db.mongoose.connect(`mongodb+srv://${process.env.USERDB}:${process.env.PWDB}@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
