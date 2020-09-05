@@ -10,7 +10,7 @@ dotenv.config();
 
 (async () => {
   try {
-    await db.mongoose.connect(`mongodb+srv://zirah352:Euro2016@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority`, {
+    await db.mongoose.connect(db.url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -28,7 +28,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'https://api-grades-estudantes.herokuapp.com'
+    origin: process.env.LOCAL_CORS || process.env.HOST_CORS
+    // origin: 'https://api-grades-estudantes.herokuapp.com'
     // origin: 'http://localhost:3000',
     // origin: 'http://localhost:8080',
   })
@@ -39,7 +40,7 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT_LOCAL || process.env.PORT_EXTERNAL;
 
 app.listen(PORT, () => {
   console.log("API iniciada!");
