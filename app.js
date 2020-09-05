@@ -7,7 +7,7 @@ import { db } from './models/index.js';
 
 (async () => {
   try {
-    await db.mongoose.connect(db.url, {
+    await db.mongoose.connect("mongodb+srv://zirah352:Euro2016@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -25,7 +25,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://ramon-bank-api.herokuapp.com/',
+    // origin: 'http://localhost:3000',
     // origin: 'http://localhost:8080',
   })
 );
@@ -35,6 +36,6 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-app.listen(process.env.PORTLOCAL || process.env.PORTEXTERNAL, () => {
+app.listen(8080 || process.env.PORTEXTERNAL, () => {
   console.log("API iniciada!");
 });
