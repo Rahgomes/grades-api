@@ -5,9 +5,6 @@ import cors from 'cors';
 import { gradeRouter } from './routes/gradeRouter.js';
 import { db } from './models/index.js';
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 (async () => {
   try {
     await db.mongoose.connect(db.url, {
@@ -43,5 +40,5 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || process.env.PORT_LOCAL || process.env.PORT_EXTERNAL;
 
 app.listen(PORT, () => {
-  console.log("API iniciada!");
+  console.log(`API iniciada na porta ${PORT}!!!`);
 });
