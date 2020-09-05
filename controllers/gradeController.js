@@ -1,4 +1,4 @@
-// import { logger } from '../config/logger.js';
+import { logger } from '../config/logger.js';
 import Grades from '../models/gradesModel.js';
 
 const create = async (req, res) => {
