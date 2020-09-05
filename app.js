@@ -10,7 +10,7 @@ dotenv.config();
 
 (async () => {
   try {
-    await db.mongoose.connect(`mongodb+srv://${process.env.USERDB}:${process.env.PWDB}@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority`, {
+    await db.mongoose.connect(`mongodb+srv://zirah352:Euro2016@clusterbootcamp.bbalc.mongodb.net/grades-api?retryWrites=true&w=majority`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
   res.send('API em execucao');
 });
 
-const PORT = process.env.PORTLOCAL || 8081;
+const PORT = process.env.PORT || 8081;
 
 app.listen(PORT, () => {
   console.log("API iniciada!");
