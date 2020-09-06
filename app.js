@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://app-grades-estudantes.herokuapp.com"
+    origin: process.env.LOCAL_CORS || process.env.HOST_CORS || process.env.HOST_FRONT_CORS
   })
 );
 
