@@ -5,6 +5,9 @@ import cors from 'cors';
 import { gradeRouter } from './routes/gradeRouter.js';
 import { db } from './models/index.js';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 (async () => {
   try {
     await db.mongoose.connect(db.url, {
@@ -25,7 +28,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://app-grades-estudantes.herokuapp.com"
+    origin: process.env.LOCAL_CORS || process.env.HOST_CORS || process.env.HOST_FRONT_CORS
   })
 );
 
